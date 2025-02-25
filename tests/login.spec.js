@@ -17,8 +17,8 @@ test('Não deve logar quando o código de autenticação é inválido', async ({
   }
 
   await loginPage.acessaPagina()
-  await loginPage.informarCpf(usuario.cpf)
-  await loginPage.informarSenha(usuario.senha)
+  await loginPage.informaCpf(usuario.cpf)
+  await loginPage.informaSenha(usuario.senha)
   await loginPage.informe2FA('123456')
 
   await expect(page.locator('span')).toContainText('Código inválido. Por favor, tente novamente.');
@@ -37,8 +37,8 @@ test('Deve acessar a conta do usuário', async ({ page }) => {
   await cleanJobs()
 
   await loginPage.acessaPagina()
-  await loginPage.informarCpf(usuario.cpf)
-  await loginPage.informarSenha(usuario.senha)
+  await loginPage.informaCpf(usuario.cpf)
+  await loginPage.informaSenha(usuario.senha)
 
   //checkpoint
   await page.getByRole('heading', {name:'Verificação em duas etapas'})
